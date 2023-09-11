@@ -55,6 +55,17 @@ I'm not an IAM expert, but I'm using this IAM policy to allow the EC2 instance t
           }
       ]
     }
+
+### Installation
+The script requires the AWS CLI.
+I run the script via cron so that it executes every 5 minutes
+
+    */5 * * * * /home/ubuntu/scripts/update-tailscale-sgs.sh
+    
+Options. There is a status option:
+
+    usage: /home/ubuntu/scripts/update-tailscale-sgs.sh [ -s | --status ] [ -h | --help ]
+            
 ## Next Steps
 - I'd like to add the funcationality so that if an IP allowance rule hasn't been updated in x days (and is not currently being used), that it can be removed
 - I'd also like to figure out a better way to configure the regions/security groups so that configuration doesn't require updating the case statement
